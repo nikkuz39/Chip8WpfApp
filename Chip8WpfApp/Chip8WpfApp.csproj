@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <ApplicationIcon>chip8Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ResourcesR\**" />
+    <Compile Remove="Resource\**" />
+    <EmbeddedResource Remove="ResourcesR\**" />
+    <EmbeddedResource Remove="Resource\**" />
+    <None Remove="ResourcesR\**" />
+    <None Remove="Resource\**" />
+    <Page Remove="ResourcesR\**" />
+    <Page Remove="Resource\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="chip8Icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Games\pongOnePlayer.ch8">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\spaceInvaders.ch8">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\tetris.ch8">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\FontFamily\FFFFORWA.TTF">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\FontFamily\FFFFORWA.TTF" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Using Include="System" />
+    <Using Include="Chip8WpfApp.Interpreter" />
+    <Using Include="System.Collections.Generic" />
+    <Using Include="System.Drawing" />
+    <Using Include="System.Drawing.Imaging" />
+    <Using Include="System.IO" />
+    <Using Include="System.Windows" />
+    <Using Include="System.Windows.Input" />
+    <Using Include="System.Windows.Media.Imaging" />
+    <Using Include="System.Windows.Threading" />
+  </ItemGroup>
+
+</Project>

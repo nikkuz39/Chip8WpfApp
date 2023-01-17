@@ -1,0 +1,84 @@
+﻿<Window x:Class="Chip8WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chip8WpfApp"
+        mc:Ignorable="d"
+        Title="Chip-8 Interpreter" Height="600" Width="800"
+        Background="Black">
+    <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="TextBlockStyle">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily" Value="pack://application:,,,/Resources/FontFamily/#FFF FORWARD" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="ListBox" x:Key="ListBoxStyle">
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontFamily" Value="pack://application:,,,/Resources/FontFamily/#FFF FORWARD" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock
+            Grid.ColumnSpan="3"            
+            Text="Chip-8"
+            Style="{StaticResource ResourceKey=TextBlockStyle}"
+            FontSize="24" />
+
+        <Image
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            x:Name="DisplayImg"
+            RenderOptions.BitmapScalingMode="NearestNeighbor" />
+
+        <TextBlock
+            Grid.Row="2"
+            Text="Games:"
+            Style="{StaticResource ResourceKey=TextBlockStyle}" />
+
+        <ListBox
+            Grid.Row="3"
+            x:Name="gamesListBox"
+            Style="{StaticResource ResourceKey=ListBoxStyle}"
+            SelectionChanged="SelectedGame" />
+
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="1"
+            Text="Keys:"
+            Style="{StaticResource ResourceKey=TextBlockStyle}" />
+
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="1"
+            VerticalAlignment="Top"
+            Style="{StaticResource ResourceKey=TextBlockStyle}">
+            1 2 3 4
+            <LineBreak />
+            Q W E R
+            <LineBreak />
+            A S D F
+            <LineBreak />
+            Z X C V
+        </TextBlock>
+    </Grid>
+</Window>
